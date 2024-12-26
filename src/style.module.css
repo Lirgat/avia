@@ -1,0 +1,7 @@
+.TicketsBlock {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 50px;
+}

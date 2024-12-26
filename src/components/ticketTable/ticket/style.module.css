@@ -1,0 +1,94 @@
+.Ticket {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    gap: 50px;
+    width: 100%;
+    padding: 30px;
+    border: 1px solid #838383;
+    border-radius: 30px;
+}
+
+.BuyTicket {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Roboto";
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.BuyTicket_name {
+    margin: 0;
+    padding: 0;
+    font-size: 42px;
+}
+
+.BuyTicket_button {
+    padding: 10px;
+    border: none;
+    background-color: rgb(255, 102, 0);
+    font-weight: bold;
+    font-size: 18px;
+    color: #ffffff;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    width: 150px;
+}
+
+.BuyTicket_button:hover {
+    background-color: orange;
+}
+
+.TicketInfo {
+    display: flex;
+    align-items: start;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 35px;
+    width: 100%;
+}
+
+.Departure, .Arrival {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.DepartureTime, .ArrivalTime {
+    font-weight: bold;
+    font-size: 36px;
+    font-family: "Roboto";
+}
+
+.DepartureName, .ArrivalName {
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.ArrivalDate, .DepartureDate {
+    font-family: "Roboto";
+    font-size: 18px;
+    color: #838383;
+}
+
+.Stops {
+    position: relative;
+    font-family: "Roboto";
+}
+
+.Stops::after {
+    position: absolute;
+    content: "";
+    width: 110%;
+    height: 2px;
+    bottom: -10px;
+    left: 0;
+    background-color: black;
+}

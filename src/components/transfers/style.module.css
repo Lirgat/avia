@@ -1,0 +1,67 @@
+.TransfersBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+}
+
+.TransfersBlock_h1 {
+    font-size: 24px;
+}
+
+.Checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.Checkboxex {
+    display: flex;
+
+}
+
+.Checkbox_input {
+    display: none; /* Скрываем стандартный чекбокс */
+}
+
+.Checkbox_label {
+    position: relative;
+    padding-left: 30px; 
+    cursor: pointer; 
+}
+
+.Checkbox_label_span {
+    color: rgb(0, 123, 255);
+    font-weight: bold;
+    padding-left: 10PX;
+}
+
+.Checkbox_label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px; 
+    height: 20px;
+    border: 2px solid rgb(0, 123, 255); 
+    border-radius: 4px; 
+    background-color: white; 
+}
+
+.Checkbox_input:checked + .Checkbox_label::before {
+    background-color: #ffffff;
+}
+
+.Checkbox_input:checked + .Checkbox_label::after {
+    content: '';
+    position: absolute;
+    left: 8px; 
+    top: 48%;
+    transform: translateY(-50%) rotate(45deg); 
+    width: 5px; 
+    height: 10px; 
+    border: solid rgb(0, 123, 255); 
+    border-width: 0 2px 2px 0; 
+}
