@@ -1,6 +1,12 @@
 export interface Tickets {
-    tickets: [TicketType] | []
+    tickets: TicketsState
 } 
+
+export interface TicketsTableInterface {
+    currentCurrency: Currency
+    prevCurrency: Currency
+    tickets: TicketsState
+}
 
 export interface CurrentCurrency {
     currentCurrency: Currency
@@ -21,7 +27,7 @@ export interface TicketType {
     price: number
 }
 
-export type TicketsState = [TicketType] | []
+export type TicketsState = TicketType[] | []
 
-export type Currency = "RUB" | "USD" | "EUR"
+export type Currency = "RUB" | "USD" | "EUR" | ''
 

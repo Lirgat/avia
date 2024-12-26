@@ -3,7 +3,7 @@ import style from "./style.module.css"
 
 const Transfers:FC = ():JSX.Element => {
 
-
+    
 
     return (
         <div className={ style.TransfersBlock }>
