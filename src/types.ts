@@ -6,7 +6,18 @@ export interface TicketsTableInterface {
     currentCurrency: Currency
     prevCurrency: Currency
     tickets: TicketsState
+    filters: Filters
 }
+
+export interface TransfersProps {
+    filters: {
+      all: boolean;
+      withoutTransfers: boolean;
+      oneTransfer: boolean;
+      twoOrMoreTransfers: boolean;
+    };
+    onFilterChange: (filter: string, value: boolean) => void;
+  }
 
 export interface CurrentCurrency {
     currentCurrency: Currency
@@ -25,6 +36,14 @@ export interface TicketType {
     carrier: string
     stops: number
     price: number
+    currency: Currency
+}
+
+export interface Filters {
+    all: boolean
+    withoutTransfers: boolean
+    oneTransfer: boolean
+    twoOrMoreTransfers: boolean
 }
 
 export type TicketsState = TicketType[] | []

@@ -12,7 +12,7 @@ const Currencies: FC<CurrentCurrency> = ({
     },
     [currentCurrency]
   );
-
+  
   return (
     <div className={style.CurrencyBlock}>
       <h1 className={style.CurrencyBlock_h1}>ВАЛЮТА</h1>

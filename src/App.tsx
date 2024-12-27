@@ -2,17 +2,46 @@ import React, { useEffect, useState } from "react";
 import style from "./style.module.css";
 import Currencies from "./components/currencies/Currencies.tsx";
 import Transfers from "./components/transfers/Transfers.tsx";
-import { Currency, TicketsState } from "./types.ts";
+import { Currency, Filters, TicketsState } from "./types.ts";
 import TicketTable from "./components/ticketTable/TicketTable.tsx";
 
 function App() {
   const [tickets, setTickets] = useState<TicketsState>([]);
   const [currency, setCurrency] = useState<Currency>("RUB");
   const [prevCurrency, setPrevCurrency] = useState<Currency>("");
+  const [filters, setFilters] = useState<Filters>({
+    all: true,
+    withoutTransfers: false,
+    oneTransfer: false,
+    twoOrMoreTransfers: false
+  })
 
   const setNewCurrency = (newCurrency: Currency): void => {
     setPrevCurrency(currency);
     setCurrency(newCurrency);
+  };
+
+  const handleFilterChange = (filter: string, value: boolean) => {
+    if (filter === "all" && value !== false) {
+      setFilters({
+        all: true,
+        withoutTransfers: false,
+        oneTransfer: false,
+        twoOrMoreTransfers: false,
+      });
+    } else if (filter === "withoutTransfers" && value !== false) {
+      setFilters({
+        all: false,
+        withoutTransfers: true,
+        oneTransfer: false,
+        twoOrMoreTransfers: false,
+      });
+    } else {
+      setFilters((prev) => ({
+        ...prev,
+        [filter]: value,
+      }));
+    }
   };
 
   useEffect(() => {
@@ -41,12 +70,13 @@ function App() {
           currentCurrency={currency}
           setNewCurrency={setNewCurrency}
         ></Currencies>
-        <Transfers></Transfers>
+         <Transfers filters={filters} onFilterChange={handleFilterChange} />
       </div>
       <TicketTable
         prevCurrency={prevCurrency}
         currentCurrency={currency}
         tickets={tickets}
+        filters={filters}
       ></TicketTable>
     </div>
   );

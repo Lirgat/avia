@@ -14,13 +14,15 @@ const Ticket: FC<TicketType> = ({
   carrier,
   stops,
   price,
+  currency
 }): JSX.Element => {
+
   return (
     <div className={style.Ticket}>
       <div className={style.BuyTicket}>
         <h1 className={style.BuyTicket_name}>{carrier}</h1>
         <button className={style.BuyTicket_button}>
-          Купить <br /> за {price}{" "}
+          Купить <br /> за {price}{currency === "RUB" ? '₽' : currency === "USD" ? '$' : currency === "EUR" ? '€' : ''}
         </button>
       </div>
       <div className={style.TicketInfo}>
@@ -32,12 +34,11 @@ const Ticket: FC<TicketType> = ({
           <div className={style.DepartureDate}>{departure_date}</div>
         </div>
         <div className={style.Stops}>
-          {" "}
           {stops === 1
             ? `${stops} ПЕРЕСАДКА`
             : stops <= 0
             ? `БЕЗ ПЕРЕСАДОК`
-            : `${stops} ПЕРЕСАДКИ`}{" "}
+            : `${stops} ПЕРЕСАДКИ`}
         </div>
         <div className={style.Arrival}>
           <div className={style.ArrivalTime}>{arrival_time}</div>

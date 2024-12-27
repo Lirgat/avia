@@ -13,7 +13,7 @@ const converter = (newCurrency, prevCurrency, prevValue) => {
             RUB: 88.30
         }
     };
-
+    
     const conversionRate = rates[prevCurrency][newCurrency];
     const newValue = prevValue * conversionRate;
 
